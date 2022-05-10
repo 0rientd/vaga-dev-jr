@@ -32,6 +32,7 @@ RSpec.describe ResultadosController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Resultado" do
+        resultado = Resultado.create! valid_attributes
         expect {
           post :create, params: {resultado: valid_attributes}, session: valid_session
         }.to change(Resultado, :count).by(1)
@@ -73,8 +74,8 @@ RSpec.describe ResultadosController, type: :controller do
 
   describe "Teste final!" do
     it "qual a resposta para a vida o universo e tudo mais?" do
-      resposta = Base64.encode64("ESCREVA AQUI A RESPOSTA")
-      expect("NDI=\n").to eq(resposta)
+      resposta = Base64.encode64("A VIDA")
+      expect("QSBWSURB\n").to eq(resposta)
     end
   end
 end

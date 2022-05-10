@@ -5,7 +5,7 @@ RSpec.describe Validadores, type: :lib do
   describe "Validadores" do
     context "data" do
       it "validador data (YYYY-MM-DD)" do
-        data = Validadores.data('2019-31-12')
+        data = Validadores.data('2019-12-31')
 
         expect(data).to eq(true)
       end
