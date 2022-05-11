@@ -21,4 +21,26 @@ class Validadores
   def self.email(email)
     /([A-Za-z0-9]*((_*[\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,}))/.match?(email)
   end
+
+  def self.data_ano_mes(data)
+    /^(([1-2][0-9]{3})[\-](0[1-9]|1[0-2]))$/.match?(data)
+  end
+
+  def self.data_com_barra(data)
+    /^((0[1-9]|[1-2][0-9]|3[0-1])[\/](0[1-9]|1[0-2])[\/]([1-2][0-9]{3}))$/.match?(data)
+  end
+
+  def self.valida_numero(num)
+    case num.class.to_s
+    when 'Integer'
+      return 'Integer'
+    
+    when 'Float'
+      return 'Float'
+
+    else
+      return false
+    
+    end
+  end
 end
