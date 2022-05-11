@@ -45,8 +45,23 @@ RSpec.describe Resultados, type: :lib do
 
       expect(resultado.calcula_realizado).to eq(1)
     end
+  end
 
-    # @TODO CRIE MAIS TESTES
-    # NO CASE DO resultados.rb
+  describe "Verificar parâmetros no calcula performance" do
+    it "com valor_realizado recebendo caracter" do 
+      resultado = Resultados.new
+      resultado.valor_meta = 0
+      resultado.valor_realizado = "f"
+
+      expect(resultado.calcula_performance).to eq(nil)
+    end
+
+    it "com valor_meta recebendo 0 e valor_realizado 0" do
+      resultado = Resultados.new
+      resultado.valor_meta = 0
+      resultado.valor_realizado = 0
+
+      expect(resultado.calcula_performance).to eq(nil)
+    end
   end
 end
